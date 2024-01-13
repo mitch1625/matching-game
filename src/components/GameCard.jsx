@@ -1,11 +1,15 @@
 import Card from 'react-bootstrap/Card';
 
-const GameCard = ({ id, name, imgSrc }) => {
+const GameCard = ({ id, name, imgSrc, handleSelected }) => {
+
+  const handleClick = (name) => {
+    handleSelected(name)
+  }
 
 
   return(
     <>
-    <Card key={id} style={{ width: '18rem' }}>
+    <Card onClick={()=>handleClick(name)} key={id} style={{ width: '18rem' }}>
       <Card.Img variant="top"
       src={imgSrc}
        />

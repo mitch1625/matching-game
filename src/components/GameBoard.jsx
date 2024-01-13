@@ -8,6 +8,8 @@ import animalArr from "./AnimalArray"
 
 const GameBoard = () => {
   const [shuffledArr, setShuffledArr] = useState([])
+  const [firstCard, setFirstCard] = useState(null)
+  const [secondCard, setSecondCard] = useState(null)
 
   const shuffleArray = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -18,6 +20,27 @@ const GameBoard = () => {
     }
     setShuffledArr(arr)
   }
+
+  const handleSelected = (animal) => {
+    if (firstCard !== null && firstCard !== animal.name) {
+      setSecondCard(animal)
+      console.log('frist card: ', firstCard)
+      console.log('second card: ',secondCard)
+    } else {
+      setFirstCard(animal)
+      console.log('first card: ', firstCard)
+    }
+  }
+
+  /// leftoff here
+  useEffect(()=> {
+    if (firstCard && secondCard) {
+      if (firstCard === secondCard) {
+        console.log('winner')
+      }
+
+    }
+  },[firstCard, secondCard])
 
   // update this useEffect when play button is addedd
   useEffect(() => {
@@ -34,6 +57,7 @@ const GameBoard = () => {
           id = {animal.id}
           name = {animal.name}
           imgSrc = {animal.img}
+          handleSelected = {handleSelected}
           />
         ))}
       </Row>
