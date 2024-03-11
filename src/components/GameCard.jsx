@@ -1,16 +1,25 @@
-import Card from 'react-bootstrap/Card';
 
-const GameCard = ({ id, name, imgSrc }) => {
+const GameCard = ({ animal, handleSelected, flipped, disabled }) => {
 
+  const handleClick = () => {
+    if(!disabled){
+      handleSelected(animal)
+    }
+  }
 
   return(
     <>
-    <Card key={id} style={{ width: '18rem' }}>
-      <Card.Img variant="top"
-      src={imgSrc}
-       />
-      <Card.Text>{name}</Card.Text>
-      </Card>
+      <div className='card' key={animal.id}>
+        <div className={flipped ? "flipped" : ""}>
+          <img className="front" 
+          src={animal.img}
+          />
+          <img className="back" 
+          src={"./src/card-imgs/back-of-card.png"} 
+          onClick={()=>handleClick(animal)}
+          />
+        </div>
+      </div>
     </>
   )
 }

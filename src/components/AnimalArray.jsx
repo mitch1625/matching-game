@@ -1,84 +1,36 @@
 const animalArr = [
   {
-    id: 1,
-    name: 'Alligator',
-    img: 'src/card-imgs/alligator.png'
+    img: 'src/card-imgs/alligator.png',
+    matched: false
   },
   {
-    id: 2,
-    name: 'Cat',
-    img: 'src/card-imgs/cat.png'
+    img: 'src/card-imgs/cat.png',
+    matched: false
   },
   {
-    id: 3,
-    name: 'Dog',
-    img: 'src/card-imgs/dog.png'
+    img: 'src/card-imgs/dog.png',
+    matched: false
   },
   {
-    id: 4,
-    name: 'Giraffe',
-    img: 'src/card-imgs/giraffe.png'
+    img: 'src/card-imgs/giraffe.png',
+    matched: false
   },
   {
-    id: 5,
-    name: 'Owl',
-    img: 'src/card-imgs/owl.png'
+    img: 'src/card-imgs/owl.png',
+    matched: false
   },
   {
-    id: 6,
-    name: 'Penguin',
-    img : 'src/card-imgs/penguin.png'
+    img : 'src/card-imgs/penguin.png',
+    matched: false
   },
   {
-    id: 7,
-    name: 'Tucan',
-    img: 'src/card-imgs/tucan.png'
+    img: 'src/card-imgs/tucan.png',
+    matched: false
   },
   {
-    id: 8,
-    name: 'Unicorn',
-    img: 'src/card-imgs/unicorn.png'
+    img: 'src/card-imgs/unicorn.png',
+    matched: false
   },
-  {
-    id: 9,
-    name: 'Alligator',
-    img: 'src/card-imgs/alligator.png'
-  },
-  {
-    id: 10,
-    name: 'Cat',
-    img: 'src/card-imgs/cat.png'
-  },
-  {
-    id: 11,
-    name: 'Dog',
-    img: 'src/card-imgs/dog.png'
-  },
-  {
-    id: 12,
-    name: 'Giraffe',
-    img: 'src/card-imgs/giraffe.png'
-  },
-  {
-    id: 13,
-    name: 'Owl',
-    img: 'src/card-imgs/owl.png'
-  },
-  {
-    id: 14,
-    name: 'Penguin',
-    img : 'src/card-imgs/penguin.png'
-  },
-  {
-    id: 15,
-    name: 'Tucan',
-    img: 'src/card-imgs/tucan.png'
-  },
-  {
-    id: 16,
-    name: 'Unicorn',
-    img: 'src/card-imgs/unicorn.png'
-  }
 ]
 
 export default animalArr

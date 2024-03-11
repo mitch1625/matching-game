@@ -7,17 +7,49 @@ import GameCard from "./GameCard"
 import animalArr from "./AnimalArray"
 
 const GameBoard = () => {
-  const [shuffledArr, setShuffledArr] = useState([])
+  const [firstCard, setFirstCard] = useState(null)
+  const [secondCard, setSecondCard] = useState(null)
+  const [cards, setCards] = useState([])
+  const [disabled, setDisabled] = useState(false)
 
   const shuffleArray = (arr) => {
-    for (let i = arr.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i+1));
-      let temp = arr[i]
-      arr[i] = arr[j]
-      arr[j] = temp
-    }
-    setShuffledArr(arr)
+    const shuffled = [...animalArr, ...animalArr]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({...card, id: Math.random() }))
+    
+    setCards(shuffled)
   }
+
+  const handleSelected = (animal) => {
+    firstCard ? setSecondCard(animal) : setFirstCard(animal)
+  }
+
+  const resetCards = () => {
+    setFirstCard(null)
+    setSecondCard(null)
+    setDisabled(false)
+  }
+
+  useEffect(()=> {
+    if (firstCard && secondCard) {
+      setDisabled(true)
+      // compare card selections
+      if (firstCard.img === secondCard.img) {
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if(card.img === firstCard.img) {
+              return {...card, matched: true}
+            } else {
+              return card
+            }
+          })
+        }) 
+        resetCards()
+      } else {
+        setTimeout(()=> resetCards(), 1000)
+      }
+    }
+  },[firstCard, secondCard])
 
   // update this useEffect when play button is addedd
   useEffect(() => {
@@ -27,13 +59,14 @@ const GameBoard = () => {
   return (
     <>
     <Container>
-    <Row xs={4}>
-        {shuffledArr.map((animal) => (
+    <Row xs={5}>
+        {cards.map((animal) => (
           <GameCard
           key = {animal.id}
-          id = {animal.id}
-          name = {animal.name}
-          imgSrc = {animal.img}
+          animal = {animal}
+          handleSelected = {handleSelected}
+          flipped={animal === firstCard || animal === secondCard || animal.matched}
+          disabled={disabled}
           />
         ))}
       </Row>
