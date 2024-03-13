@@ -9,7 +9,7 @@ const GameCard = ({ animal, handleSelected, flipped, disabled }) => {
 
   return(
     <>
-      <div className='card' key={animal.id}>
+      <div className='card' key={animal.id} style={{border:'none'}}>
         <div className={flipped ? "flipped" : ""}>
           <img className="front" 
           src={animal.img}

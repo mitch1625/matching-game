@@ -1,0 +1,41 @@
+.container {
+  margin-top:20px;
+}
+
+.row {
+  justify-content: center;
+}
+
+.card {
+  margin: 7px;
+  overflow: hidden;
+}
+
+.card img {
+  width:100%;
+  /* max-width: 100%; */
+  height: auto;
+  display:block;
+}
+
+.card .front {
+  width:90%;
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}

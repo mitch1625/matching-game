@@ -51,7 +51,7 @@ const GameBoard = () => {
     }
   },[firstCard, secondCard])
 
-  // update this useEffect when play button is addedd
+
   useEffect(() => {
     shuffleArray(animalArr)
   }, [])
